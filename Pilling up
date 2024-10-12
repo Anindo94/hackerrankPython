@@ -1,0 +1,38 @@
+t=int(input())
+for _ in range(t):
+
+# taking number of input
+    n=int(input())
+
+#input separated by space 
+    cubes=list(map(int, input().split()))
+
+#initializing the left and right most elements 
+    left=0
+    right=n-1
+
+#taking the current maximum element in stack as infinity, below is the way to declare the infinity in python
+    current_max=float('inf')
+# maintaining the non decreasing order of the stack 
+
+    while left<=right:
+# comparing the left and right most element and choosing the left most if it is greater then the rightmost element
+        if cubes[left] >= cubes[right]:
+            chosen_block=cubes[left]
+            left+=1
+        else:
+            chosen_block=cubes[right]
+            right=right-1
+
+# if the chosen element is greater then the current max element we will print no, in this case we have declared it infinity which is not happen 
+        if chosen_block > current_max:
+            print('No')
+            break
+        else:
+            current_max=chosen_block
+            
+            
+            
+    else:
+        print('Yes')
+        
